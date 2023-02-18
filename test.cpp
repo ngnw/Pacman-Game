@@ -54,3 +54,23 @@ TEST_CASE ( "move enemy to new position", "[MoveEnemy]") {
   
   REQUIRE( b1.MoveEnemy( p, pos) == true );
 }
+
+TEST_CASE ( "checking enemy collects treasure", "[TakeTurnEnemy]") {
+  Game *g1 = new Game();
+  
+  Player *p = new Player("Ngozi", true);
+
+  Player *p_2 = new Player("enemy", false);
+  Position pos2;
+  pos2.row = 2;
+  pos2.col = 9;
+  p_2->SetPosition(pos2);
+  
+  std::vector<Player*> Enemy;
+  Enemy.push_back(p_2);
+  
+  g1->NewGame(p, Enemy, 1);
+  g1->TakeTurnEnemy(p_2);
+  
+  REQUIRE( p_2->hasTreasure() == true );
+}
