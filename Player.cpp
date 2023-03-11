@@ -80,7 +80,7 @@ std::string Player::ToRelativePosition(Position other){
 
 //Convert this player to a string representation of their name and points
 std::string Player::Stringify(){
-  std::string player_rep = "Lives remaining: " + std::to_string(lives_) + '\n' + "Number of moves by Ngozi: " + std::to_string(moves_) + '\n';
+  std::string player_rep = "Lives remaining: " + std::to_string(lives_) + '\n' + "Number of moves by " + name_ + ": " + std::to_string(moves_) + '\n';
   return player_rep;
 }
 
